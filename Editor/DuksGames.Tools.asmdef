@@ -1,0 +1,25 @@
+{
+    "name": "DuksGames.Tools",
+    "rootNamespace": "",
+    "references": [
+        "GUID:19fd704b659794f4e91d23770120b97d",
+        "GUID:6902fe8ef2ca1ea49beaa0e2d01f2e7e",
+        "GUID:1d878cd9d2ff79e43863306795dc206f",
+        "GUID:6a53ce8f842543443a83adf3bb946c8d",
+        "GUID:814d65d1271d01f4084539908593514d",
+        "GUID:16305d8d9d8e93343852ba5e46a28604",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:2a24b9e841fee8e4fa003db8eb4d2691"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

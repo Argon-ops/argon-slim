@@ -1,0 +1,24 @@
+{
+    "name": "DuksGames.Argon.Core",
+    "rootNamespace": "",
+    "references": [
+        "GUID:814d65d1271d01f4084539908593514d",
+        "GUID:6a53ce8f842543443a83adf3bb946c8d",
+        "GUID:16305d8d9d8e93343852ba5e46a28604",
+        "GUID:1d878cd9d2ff79e43863306795dc206f",
+        "GUID:29a7df28d0e19ca4793615bfedbfba0a",
+        "GUID:6902fe8ef2ca1ea49beaa0e2d01f2e7e",
+        "GUID:0bc090e7988cc2f4e93b22646fd1541e",
+        "GUID:2a24b9e841fee8e4fa003db8eb4d2691",
+        "GUID:3eda63428e5425d44a8962eb3be788be"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

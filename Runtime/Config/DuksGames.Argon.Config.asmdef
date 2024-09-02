@@ -1,0 +1,16 @@
+{
+    "name": "DuksGames.Argon.Config",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6a53ce8f842543443a83adf3bb946c8d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
