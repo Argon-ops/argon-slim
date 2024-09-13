@@ -177,8 +177,56 @@ Transform:
   - {fileID: 7463434051508983253}
   - {fileID: 7463434053249546433}
   - {fileID: 1795725514352028690}
+  - {fileID: 2470111409994720401}
   m_Father: {fileID: 7463434051416636825}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7404146230703525537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2470111409994720401}
+  - component: {fileID: 2054127626993494918}
+  m_Layer: 0
+  m_Name: ARGON_HUDStateMngr
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2470111409994720401
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7404146230703525537}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7738326153911287575}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2054127626993494918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7404146230703525537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aad0a2c29c060d408a3341d8472d5af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onHUDRequest:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7463434051297410348
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,6 +241,7 @@ GameObject:
   - component: {fileID: 7463434051297410343}
   - component: {fileID: 7463434051297410342}
   - component: {fileID: 5913185922466358298}
+  - component: {fileID: 1877711668917623160}
   m_Layer: 0
   m_Name: MainCam
   m_TagString: MainCamera
@@ -282,7 +331,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7463434051297410348}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33ce6ab1a60bd98439dd1c9d651992af, type: 3}
   m_Name: 
@@ -309,12 +358,56 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7463434051297410348}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c740d8840e61eb439777d8fcbcd6f65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 7463434051297410341}
+--- !u!114 &1877711668917623160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7463434051297410348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &7463434051363277838
 GameObject:
   m_ObjectHideFlags: 0
@@ -839,7 +932,7 @@ MonoBehaviour:
   _PlayerUpdateStack: {fileID: 7463434051416636802}
   _ThirdPersonControllerStateManager: {fileID: 7463434051508983248}
   _CurrentBeaconProvider: {fileID: 7463434051416636802}
-  _HUDStateManager: {fileID: 0}
+  _HUDStateManager: {fileID: 7404146230703525537}
 --- !u!114 &7463434052866511588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -943,7 +1036,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PanelSettings: {fileID: 11400000, guid: 2bac41ed48d32564c8868fc5d672b9d2, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: cedc51338d3068b478c5d3bf79868e23, type: 3}
+  sourceAsset: {fileID: 9197481963319205126, guid: cedc51338d3068b478c5d3bf79868e23,
+    type: 3}
   m_SortingOrder: 0
 --- !u!114 &7463434053249546432
 MonoBehaviour:
