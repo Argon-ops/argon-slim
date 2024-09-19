@@ -353,8 +353,6 @@ namespace DuksGames.Argon.Gameplay
                     CharacterVelocity = Vector3.Lerp(CharacterVelocity, targetVelocity,
                         MovementSharpnessOnGround * Time.deltaTime);
 
-                    Debug.Log($"Grounded");
-
                     // jumping
                     if (IsGrounded && m_InputHandler.GetJumpInputDown())
                     {
