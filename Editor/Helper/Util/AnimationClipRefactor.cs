@@ -13,7 +13,7 @@ namespace DuksGames.Tools
 
     public static class AnimationClipRefactor
     {
-        [MenuItem("Mel/Refactor Animation Clips: Extend to ancestors", false)]
+        [MenuItem("Tools/Argon/Refactor Animation Clips: Extend to ancestors", false)]
         static void _Refactor()
         {
             var target = Selection.activeGameObject.transform;
