@@ -113,7 +113,7 @@ namespace DuksGames.Tools
         PlayableClipIngredients CreateClipIngredients(ModelPostProcessInfo mppi, StarterWorkTicketData ticketData, Dictionary<string, AnimationClip> clips)
         {
             var filterClipResults = this.FilterClips(ticketData, clips).Where(result => result != null);
-            Debug.Log($"CUTSCENE: {filterClipResults.JoinSelf(cfr => cfr.targetName)}".Orange());
+            Logger.ImportLog($"Create Clip Ingredients: {filterClipResults.JoinSelf(fcr => fcr.targetName)}".Orange());
             var audioClip = MelGameObjectHelper.FindInProject<AudioClip>(ticketData.audioClipName);
 
             var audioSourceOwner = GameObject.Find(ticketData.audioObjectPath);

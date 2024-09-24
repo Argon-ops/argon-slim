@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: ArgonImportPreferences
   m_EditorClassIdentifier: 
   IsArgonEnabled: 1
+  IsImportLoggerEnabled: 1

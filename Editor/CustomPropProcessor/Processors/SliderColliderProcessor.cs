@@ -29,7 +29,7 @@ namespace DuksGames.Tools
             if(this.ApplyInfo.Target.GetComponent<BoxCollider>() != null) {
                 return;
             }
-            Debug.Log($"Argon: the object '{this.ApplyInfo.Target.name}' requires a Collider so this script is adding one.");
+            Logger.ImportLog($"Argon: the object '{this.ApplyInfo.Target.name}' requires a Collider so this script is adding one.");
             var bcoll = this.ApplyInfo.Target.AddComponent<BoxCollider>();
             bcoll.isTrigger = true;
         }

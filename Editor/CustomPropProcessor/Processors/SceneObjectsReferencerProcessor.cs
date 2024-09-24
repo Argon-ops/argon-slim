@@ -22,7 +22,7 @@ namespace DuksGames.Tools
             referencer.Targets = new string[] { 
                 this.GetStringWithSuffix("_object_name_1") 
             };
-            Debug.Log($"Scene Ob Referencer with targets: {referencer.Targets[0]}");
+            Logger.ImportLog($"Scene Ob Referencer with targets: {referencer.Targets[0]}");
         }
     }
 }

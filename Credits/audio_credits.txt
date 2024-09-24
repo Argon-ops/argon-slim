@@ -4,3 +4,9 @@ InspectorJ_clock-tick
 403006__inspectorj__ui-confirmation-alert-a3
 216090__richerlandtv__bad-beep-incorrect
 703440__felipethesoundfinder__donk2
+
+444987__tmos_sound__1930awaphoneringing https://freesound.org/people/TMos_Sound/sounds/444987/ cc zero
+348004__redafs__bedug-beduk-or-bedhug https://freesound.org/people/redafs/sounds/348004/ (http://creativecommons.org/licenses/by/4.0/)
+506662__rudmer_rotteveel__ Creak Wood Floor Single 07 : f4kf4ce https://freesound.org/people/Rudmer_Rotteveel/sounds/506662/ cc zero 
+703440__felipeth esoundfinder__donk2 https://freesound.org/people/felipethesoundfinder/sounds/703440/ cc zero
+80417__phoenixdk__donk https://freesound.org/people/phoenixdk/sounds/80417/ cc zero

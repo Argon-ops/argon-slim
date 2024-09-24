@@ -5,7 +5,7 @@ namespace DuksGames.Tools
 {
     public class ArgonPreferencesWindow : EditorWindow
     {
-        private ArgonImportPreferences preferences;
+        private ArgonImportPreferences preferences => ArgonCachedPreferences.Preferences;
 
         [MenuItem("Window/Argon/Preferences")]
         public static void ShowWindow()
@@ -15,7 +15,8 @@ namespace DuksGames.Tools
 
         private void OnEnable()
         {
-            this.preferences = StoreArgonPreferences.GetOrCreatePreferences();
+            ArgonCachedPreferences.GetOrCreateCachedPreferences();
+            // this.preferences = StoreArgonPreferences.GetOrCreatePreferences();
         }
 
         private void OnGUI()
@@ -25,6 +26,7 @@ namespace DuksGames.Tools
             EditorGUI.BeginChangeCheck();
 
             this.preferences.IsArgonEnabled = EditorGUILayout.Toggle("Is Argon Enabled", this.preferences.IsArgonEnabled);
+            this.preferences.IsImportLoggerEnabled = EditorGUILayout.Toggle("Is Import Logger Enabled", this.preferences.IsImportLoggerEnabled);
 
             if (EditorGUI.EndChangeCheck())
             {

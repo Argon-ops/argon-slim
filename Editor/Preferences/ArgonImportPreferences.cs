@@ -7,5 +7,7 @@ namespace DuksGames.Tools
     public class ArgonImportPreferences : ScriptableObject
     {
         public bool IsArgonEnabled = true;
+
+        public bool IsImportLoggerEnabled = false;
     }
 }

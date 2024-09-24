@@ -174,7 +174,7 @@ namespace DuksGames.Tools
                 case 1:
                 case 2:
                 default:
-                    Debug.Log($"FindClipWrapper: {fabInfo.PlayableClipIngredients.Dump()}");
+                    Logger.ImportLog($"FindClipWrapper: {fabInfo.PlayableClipIngredients.Dump()}");
 
                     // animation (1) or looping animation (2)
                     var playableCommand = fabInfo.PlayableType == 2 ?
@@ -334,7 +334,7 @@ namespace DuksGames.Tools
 
                 /// TODO: check why we are getting ftus-water-bloobs as the playable ? not expected right? should have an anim...
                     var cutscene = cmdTarget.AddComponent<CutSceneCommand>();
-                    Debug.Log($"FindClipWrapper: {fabInfo.PlayableClipIngredients.Dump()}");
+                    Logger.ImportLog($"FindClipWrapper: {fabInfo.PlayableClipIngredients.Dump()}");
                     cutscene.Playable = CommandFactory.FindClipWrapper(fabInfo.Owner, fabInfo.PlayableClipIngredients);
                     cutscene.CutSceneCamera = cmdTarget.transform.root
                             .FindRecursiveSelfInclusive(tr => tr.name.Equals(fabInfo.WorkTicketData.camera)).GetComponent<Camera>();
@@ -405,8 +405,8 @@ namespace DuksGames.Tools
             {
                 var ccr = CommandLookup.Instance.Storage[playableId];
 
-                Debug.Log($"{playableId} got ccr? {ccr.FabricationInfo.WorkTicketData.shouldPlayAfter} stor: '{ccr.FabricationInfo.WorkTicketData.playAfterStor}'".Pink());
-                Debug.Log($"But playAfter: {ccr.FabricationInfo.WorkTicketData.playAfter}");
+                Logger.ImportLog($"{playableId} got ccr? {ccr.FabricationInfo.WorkTicketData.shouldPlayAfter} stor: '{ccr.FabricationInfo.WorkTicketData.playAfterStor}'".Pink());
+                Logger.ImportLog($"But playAfter: {ccr.FabricationInfo.WorkTicketData.playAfter}");
 
                 // Not that you asked but: on the python side, playAfterStor is a backing variable for playAfter.
                 //   But it doesn't show up in the Command's __annotations__ (TODO: why ) and doesn't have a value here in the import script.
@@ -424,7 +424,7 @@ namespace DuksGames.Tools
                 {
                     try
                     {
-                        Debug.Log($"TRY with {playableId} got ccr? ".Pink());
+                        Logger.ImportLog($"TRY with {playableId} got ccr? ".Pink());
 
 
                         var linkedCCR = CommandFactory.FindExistingCommandRecord(playAfterName); //  ccr.FabricationInfo.WorkTicketData.playAfterStor);
@@ -435,7 +435,7 @@ namespace DuksGames.Tools
                         link.NextCommands.Add(linkedCCR.Command);
                         ccr.Command.CommandChainLinks.Add(link);
 
-                        Debug.Log($" NOW: we have {ccr.Command.CommandChainLinks.Count} got ccr?".Green());
+                        Logger.ImportLog($" NOW: we have {ccr.Command.CommandChainLinks.Count} got ccr?".Green());
 
 
                     }
