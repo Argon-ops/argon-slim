@@ -6,9 +6,13 @@ namespace DuksGames.Argon.Shared
 {
     public static class D
     {
+        public static void RuntimeLog(string s)
+        {
+            // Debug.Log(s);
+        }
         public static void Log(string s)
         {
-            Debug.Log(s);
+            // Debug.Log(s);
         }
 
         public static void LLog(string s)
