@@ -24,7 +24,7 @@ namespace DuksGames.Tools
                     AssetDatabase.CreateFolder("Assets", "Argon");
                 }
                 AssetDatabase.CreateAsset(preferences, "Assets/Argon/ArgonImportPreferences.asset");
-                AssetDatabase.SaveAssets();
+
             }
             return preferences;
         }

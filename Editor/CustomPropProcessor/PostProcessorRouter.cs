@@ -87,7 +87,7 @@ namespace DuksGames.Tools
 
             if(this.IsBlenderFile())
             {
-                // Decline to touch the file at all if it is .blend
+                // Decline to touch the file if it is .blend
                 //  Unity does import blender files as fbx but not always with the settings that we expect
                 //    and not with all of the Argon properties in all cases.
                 return;

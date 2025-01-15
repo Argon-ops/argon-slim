@@ -174,13 +174,13 @@ namespace DuksGames.Tools
                 case 1:
                 case 2:
                 default:
+                    // animation (1) or looping animation (2)
+
                     Logger.ImportLog($"FindClipWrapper: {fabInfo.PlayableClipIngredients.Dump()}");
 
-                    // animation (1) or looping animation (2)
                     var playableCommand = fabInfo.PlayableType == 2 ?
                         cmdTarget.AddComponent<LoopingPlayableCommand>() :
                         cmdTarget.AddComponent<PlayPlayableCommand>();
-
 
                     playableCommand.Playable = CommandFactory.FindClipWrapper(fabInfo.Owner, fabInfo.PlayableClipIngredients);
 
@@ -237,7 +237,6 @@ namespace DuksGames.Tools
                                 cmdTarget.AddComponent<SignalLowThenHighCommand>();
                             lowThenHigh.Parameters = parameters;
                             signalMessageCommand = lowThenHigh;
-
                         }
                         else
                         {
@@ -398,7 +397,8 @@ namespace DuksGames.Tools
             return CommandLookup.Instance.Storage[playableId];
         }
 
-        // Some commands may need to create links to each other
+        // Some commands may need to set up references to each other.
+        //  Do that here since this method will be called after all commands have been instantiated
         public static void LinkerPass(IntermediateProductSet intermediateProductSet)
         {
             foreach (var playableId in CommandLookup.Instance.Storage.Keys)
@@ -426,7 +426,6 @@ namespace DuksGames.Tools
                     {
                         Logger.ImportLog($"TRY with {playableId} got ccr? ".Pink());
 
-
                         var linkedCCR = CommandFactory.FindExistingCommandRecord(playAfterName); //  ccr.FabricationInfo.WorkTicketData.playAfterStor);
                         var link = ccr.FabricationInfo.WorkTicketData.playAfterDeferToLatest ?
                             ccr.Command.gameObject.AddComponent<DeferringCommandChainLink>() :
@@ -436,7 +435,6 @@ namespace DuksGames.Tools
                         ccr.Command.CommandChainLinks.Add(link);
 
                         Logger.ImportLog($" NOW: we have {ccr.Command.CommandChainLinks.Count} got ccr?".Green());
-
 
                     }
                     catch (System.Exception)
