@@ -27,44 +27,44 @@ namespace DuksGames.Argon.Core
         public Component SluggishPositionLink;
         ISluggishProximityPosition _positionProvider => (ISluggishProximityPosition)this.SluggishPositionLink;
 
-        Transform _player;
-        bool _isCleanupTime;
+        // Transform _player;
+        // bool _isCleanupTime;
 
         void Start()
         {
-            this._player = SceneServices.Instance.PlayerProvider.GetPlayer().transform;
+            // this._player = SceneServices.Instance.PlayerProvider.GetPlayer().transform;
 
-            this._isCleanupTime = false;
+            // this._isCleanupTime = false;
             // StartCoroutine(this.Poll());
         }
 
         IEnumerator Poll()
         {
             throw new System.Exception("This shouldn't happen");
-            yield return new WaitForEndOfFrame(); // wait a frame to allow other Components start methods to execute
+            // yield return new WaitForEndOfFrame(); // wait a frame to allow other Components start methods to execute
 
-            while (!this._isCleanupTime)
-            {
-                if (this._positionProvider == null)
-                {
-                    Debug.Log($"Null pos provider on {this.name}");
-                }
+            // while (!this._isCleanupTime)
+            // {
+            //     if (this._positionProvider == null)
+            //     {
+            //         Debug.Log($"Null pos provider on {this.name}");
+            //     }
 
-                float ds = Vector3.SqrMagnitude(this._positionProvider.GetWorldPosition() - this._player.position);
+            //     float ds = Vector3.SqrMagnitude(this._positionProvider.GetWorldPosition() - this._player.position);
 
-                this._callback.HandleSluggishProximityUpdate(
-                    ds,
-                    this.Radius * this.Radius,
-                    this.gameObject);
+            //     this._callback.HandleSluggishProximityUpdate(
+            //         ds,
+            //         this.Radius * this.Radius,
+            //         this.gameObject);
 
-                yield return new WaitForSeconds(Mathf.Lerp(this.MinIntervalSeconds, this.MaxIntervalSeconds, ds / (this.Radius * this.Radius)));
-            }
+            //     yield return new WaitForSeconds(Mathf.Lerp(this.MinIntervalSeconds, this.MaxIntervalSeconds, ds / (this.Radius * this.Radius)));
+            // }
 
         }
 
         void OnDestroy()
         {
-            this._isCleanupTime = true;
+            // this._isCleanupTime = true;
         }
 
         public void WillGetDestroyedByDestroyList()
