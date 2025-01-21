@@ -187,7 +187,7 @@ namespace DuksGames.Argon.Setup
             }
         }
 
-        [MenuItem("Tools/Argon/Debug: Dump InputManager")]
+        // [MenuItem("Tools/Argon/Debug: Dump InputManager")]
         static void DumpInputManager()
         {
             var iaxes = ToInputAxes();

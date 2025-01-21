@@ -50,7 +50,7 @@ namespace DuksGames.Argon.Core
         }
 
 
-        [MenuItem("Tools/Argon/Rewire all AssignFieldFromSceneObject connections")]
+        // [MenuItem("Tools/Argon/Rewire all AssignFieldFromSceneObject connections")]
         public static void Rewire()
         {
             foreach(var assignField in GameObject.FindObjectsOfType<AssignFieldFromSceneObject>())
