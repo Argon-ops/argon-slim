@@ -22,7 +22,7 @@ namespace DuksGames.Tools
 
         static void RefactorImpl(Transform target)
         {
-            Logger.ImportLog($"refactoring: {target.name}");
+            Logger.Log($"refactoring: {target.name}");
 
             // AssetDatabase.StartAssetEditing();
 
@@ -32,13 +32,13 @@ namespace DuksGames.Tools
                 var animator = target.FindInAncestorSelfInclusive<Animator>();
                 var clips = animator.runtimeAnimatorController.animationClips;
 
-                Logger.ImportLog($"NUM CLIPS: {clips.Length}");
+                Logger.Log($"NUM CLIPS: {clips.Length}");
 
                 foreach (var cl in clips)
                 {
                     var bindings = AnimationUtility.GetCurveBindings(cl);
                     var paths = bindings.JoinSelf(bi => $"{bi.propertyName}: {bi.path} \n");
-                    Logger.ImportLog($"Clip {cl.name} : {paths}");
+                    Logger.Log($"Clip {cl.name} : {paths}");
                 }
 
                 RefactorClipPaths(animator, clips, true);
@@ -69,11 +69,11 @@ namespace DuksGames.Tools
             var opath = AssetDatabase.GetAssetPath(clip);
             var path = $"{opath}";
             path = path.Substring(0, path.Length - 5) + "_2.anim";
-            Logger.ImportLog($"Path: {path} \n opath: {opath}");
+            Logger.Log($"Path: {path} \n opath: {opath}");
             if (AssetDatabase.CopyAsset(opath, path))
             {
                 var copy = AssetDatabase.LoadAssetAtPath<AnimationClip>(path);
-                Logger.ImportLog($"DID it. new path: {path}");
+                Logger.Log($"DID it. new path: {path}");
                 return copy;
             }
 
@@ -100,7 +100,7 @@ namespace DuksGames.Tools
                             RecalculatePathAncestors(animator.transform, binding.path) :
                             RecalculatePath(animator.transform, binding.path);
 
-                    Logger.ImportLog($"GOT NEXT PATH: {binding.path}".Green());
+                    Logger.Log($"GOT NEXT PATH: {binding.path}".Green());
 
                     if(curve != null)
                         AnimationUtility.SetEditorCurve(clip, binding, curve);
@@ -116,7 +116,7 @@ namespace DuksGames.Tools
                 // var folder = "Assets/DTestEditedClips";
                 // var clipName = clip.name.Replace('|', '_');
                 // // AssetDatabase.CreateAsset(clip, $"{folder}/{clipName}.anim");
-                // Logger.ImportLog(AssetDatabase.GetAssetPath(clip).Pink());
+                // Logger.Log(AssetDatabase.GetAssetPath(clip).Pink());
 
             }
         }
@@ -132,7 +132,7 @@ namespace DuksGames.Tools
                 return string.Empty;
 
             var result = lastTransform.PathUpToButNotIncludingParent(nextRoot);
-            Logger.ImportLog($"WAS/IS\n{currentPath}\n{result}");
+            Logger.Log($"WAS/IS\n{currentPath}\n{result}");
             return result;
         }
         
@@ -162,7 +162,7 @@ namespace DuksGames.Tools
                 res = string.IsNullOrEmpty(res) ? child.name : $"{child.name}/{res}";
             }
 
-            Logger.ImportLog($"WAS/IS: \n{currentPath}\n{res}");
+            Logger.Log($"WAS/IS: \n{currentPath}\n{res}");
             return res;
         }
 

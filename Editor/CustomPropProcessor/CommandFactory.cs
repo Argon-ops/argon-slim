@@ -91,7 +91,7 @@ namespace DuksGames.Tools
             if (shakeDuration <= 0f)
             {
                 return cmdTarget.AddComponent<SignalMessageCommand>();
-            }
+            } 
 
             var cmdOverTime = cmdTarget.AddComponent<SignalLowThenHighCommand>();
             cmdOverTime.Parameters = new OverTimeFunctionParameters
@@ -176,7 +176,7 @@ namespace DuksGames.Tools
                 default:
                     // animation (1) or looping animation (2)
 
-                    Logger.ImportLog($"FindClipWrapper: {fabInfo.PlayableClipIngredients.Dump()}");
+                    Logger.Log($"FindClipWrapper: {fabInfo.PlayableClipIngredients.Dump()}");
 
                     var playableCommand = fabInfo.PlayableType == 2 ?
                         cmdTarget.AddComponent<LoopingPlayableCommand>() :
@@ -333,7 +333,7 @@ namespace DuksGames.Tools
 
                 /// TODO: check why we are getting ftus-water-bloobs as the playable ? not expected right? should have an anim...
                     var cutscene = cmdTarget.AddComponent<CutSceneCommand>();
-                    Logger.ImportLog($"FindClipWrapper: {fabInfo.PlayableClipIngredients.Dump()}");
+                    Logger.Log($"FindClipWrapper: {fabInfo.PlayableClipIngredients.Dump()}");
                     cutscene.Playable = CommandFactory.FindClipWrapper(fabInfo.Owner, fabInfo.PlayableClipIngredients);
                     cutscene.CutSceneCamera = cmdTarget.transform.root
                             .FindRecursiveSelfInclusive(tr => tr.name.Equals(fabInfo.WorkTicketData.camera)).GetComponent<Camera>();
@@ -398,15 +398,15 @@ namespace DuksGames.Tools
         }
 
         // Some commands may need to set up references to each other.
-        //  Do that here since this method will be called after all commands have been instantiated
+        //  Set up those references here since this method will be called after all commands have been instantiated
         public static void LinkerPass(IntermediateProductSet intermediateProductSet)
         {
             foreach (var playableId in CommandLookup.Instance.Storage.Keys)
             {
                 var ccr = CommandLookup.Instance.Storage[playableId];
 
-                Logger.ImportLog($"{playableId} got ccr? {ccr.FabricationInfo.WorkTicketData.shouldPlayAfter} stor: '{ccr.FabricationInfo.WorkTicketData.playAfterStor}'".Pink());
-                Logger.ImportLog($"But playAfter: {ccr.FabricationInfo.WorkTicketData.playAfter}");
+                Logger.Log($"{playableId} got ccr? {ccr.FabricationInfo.WorkTicketData.shouldPlayAfter} stor: '{ccr.FabricationInfo.WorkTicketData.playAfterStor}'".Pink());
+                Logger.Log($"But playAfter: {ccr.FabricationInfo.WorkTicketData.playAfter}");
 
                 // Not that you asked but: on the python side, playAfterStor is a backing variable for playAfter.
                 //   But it doesn't show up in the Command's __annotations__ (TODO: why ) and doesn't have a value here in the import script.
@@ -424,7 +424,7 @@ namespace DuksGames.Tools
                 {
                     try
                     {
-                        Logger.ImportLog($"TRY with {playableId} got ccr? ".Pink());
+                        Logger.Log($"TRY with {playableId} got ccr? ".Pink());
 
                         var linkedCCR = CommandFactory.FindExistingCommandRecord(playAfterName); //  ccr.FabricationInfo.WorkTicketData.playAfterStor);
                         var link = ccr.FabricationInfo.WorkTicketData.playAfterDeferToLatest ?
@@ -434,7 +434,7 @@ namespace DuksGames.Tools
                         link.NextCommands.Add(linkedCCR.Command);
                         ccr.Command.CommandChainLinks.Add(link);
 
-                        Logger.ImportLog($" NOW: we have {ccr.Command.CommandChainLinks.Count} got ccr?".Green());
+                        Logger.Log($" NOW: we have {ccr.Command.CommandChainLinks.Count} got ccr?".Green());
 
                     }
                     catch (System.Exception)

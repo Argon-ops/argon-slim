@@ -83,7 +83,7 @@ namespace DuksGames.Tools
             System.Object[] values)
         {
 
-            Logger.ImportLog("##### IMPORT LOG TESET> DEL ME ******######");
+            Logger.Log("##### IMPORT LOG TESET> DEL ME ******######");
 
             if(this.IsBlenderFile())
             {

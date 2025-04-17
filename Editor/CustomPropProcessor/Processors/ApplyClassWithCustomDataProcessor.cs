@@ -35,7 +35,7 @@ namespace DuksGames.Tools
                 key.EndsWith(KeyConventions.PayloadSuffix);
 
             if(result)
-                Logger.ImportLog($"APPLY GOT TARGET KEY: {key} | {result}".Blue());
+                Logger.Log($"APPLY GOT TARGET KEY: {key} | {result}".Blue());
 
             return result;
         }
@@ -72,7 +72,7 @@ namespace DuksGames.Tools
                     k.StartsWith(ApplyClassWithCustomDataKeySet.KeyConventions.Prefix)
                     && k.EndsWith(ApplyClassWithCustomDataKeySet.KeyConventions.PayloadSuffix));
 
-            Logger.ImportLog($"PAYLOADS: {payloadKeys.Count()}");
+            Logger.Log($"PAYLOADS: {payloadKeys.Count()}");
 
             return payloadKeys.Select(k =>
             {
@@ -158,17 +158,17 @@ namespace DuksGames.Tools
             var serializedObject = new SerializedObject(component); 
 
             var jsonStr = (string)this.Config.lookup[keySet.PayloadKey];
-            Logger.ImportLog($"custom payload: {jsonStr}");
+            Logger.Log($"custom payload: {jsonStr}");
             var data = JsonConvert.DeserializeObject<Dictionary<string, dynamic>>(jsonStr);
 
-            // Logger.ImportLog($"Get the keys: {data.Keys.Count()}");
+            // Logger.Log($"Get the keys: {data.Keys.Count()}");
             foreach (var key in data.Keys)
             {
                 var val = data[key];
-                // Logger.ImportLog($"KEY: {key} | {val}");
+                // Logger.Log($"KEY: {key} | {val}");
                 var property = serializedObject.FindProperty(key);
 
-                Logger.ImportLog($"{key} was a property {property?.propertyPath} isArray : {property?.isArray} | type: {property?.propertyType}");
+                Logger.Log($"{key} was a property {property?.propertyPath} isArray : {property?.isArray} | type: {property?.propertyType}");
                 if (property == null) { continue; }
 
                 // TODO: (carefully) support instantiating and assigning non-Component but serializable object types
@@ -184,9 +184,9 @@ namespace DuksGames.Tools
                     for (int i = 0; i < vals.Length; ++i)
                     {
 
-                        // Logger.ImportLog($"vals: [{i}]{vals[i]}");
+                        // Logger.Log($"vals: [{i}]{vals[i]}");
                         var itemAtIProperty = serializedObject.FindProperty($"{key}.Array.data[{i}]");
-                        // Logger.ImportLog($"Prop is: {itemAtIProperty.name} prop type: {itemAtIProperty.propertyType}");
+                        // Logger.Log($"Prop is: {itemAtIProperty.name} prop type: {itemAtIProperty.propertyType}");
                         if (itemAtIProperty.propertyType == SerializedPropertyType.ObjectReference)
                         {
                             this.workTickets.Enqueue(new AssignObjectReferenceWorkTicket
@@ -304,7 +304,7 @@ namespace DuksGames.Tools
                         property.enumValueIndex = Array.IndexOf(property.enumNames, val);
                         break;
                     default:
-                        Logger.ImportLog($"Prop: {property.propertyType} is not supported.");
+                        Logger.Log($"Prop: {property.propertyType} is not supported.");
                         break;
                 }
             }
@@ -330,7 +330,7 @@ namespace DuksGames.Tools
                     continue; 
                 var ser = new SerializedObject(ticket.FieldOwner);
                 var property = ser.FindProperty(ticket.FieldName);
-                Logger.ImportLog($"Linking: prop name: {property.name}");
+                Logger.Log($"Linking: prop name: {property.name}");
                 this.AssignObjectReference(ticket); 
                 ser.ApplyModifiedPropertiesWithoutUndo();
             }
