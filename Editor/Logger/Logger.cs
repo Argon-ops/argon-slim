@@ -8,6 +8,7 @@ namespace DuksGames.Tools
     {
         static bool _isImportLoggerEnabled => true;  
         
+        // 
         public static void Log(string s)
         {
             if(_isImportLoggerEnabled)
