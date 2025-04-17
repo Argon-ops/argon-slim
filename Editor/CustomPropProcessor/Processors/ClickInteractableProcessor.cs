@@ -178,19 +178,19 @@ namespace DuksGames.Tools
                                 ShGameObjectHelper.FindInRoot(interactionHandler.transform, forwardTargetName)?.gameObject;
             if(forwardObject != null) // forwardTargetName == ArgonImportSymbols.ThisObject)
             {
-                // Logger.ImportLog($"find forw ob: '{forwardObject.name}'");
+                // Logger.Log($"find forw ob: '{forwardObject.name}'");
                 try {
                     // Try to find a click interaction handler on the forward object
                     //   it might not have beed added yet. 
                     // var DCompos = forwardObject.GetComponents<Component>();
-                    // Logger.ImportLog($"found {DCompos.Length} components");
+                    // Logger.Log($"found {DCompos.Length} components");
                     var cih = forwardObject.GetComponents<Component>().First(h => h is IClickInteractionHandler && h != interactionHandler);
                     UnityEventTools.AddPersistentListener(interactionHandler.OnInteracted, ((IClickInteractionHandler) cih).Interact);
                     return;
                 } 
                 catch (System.InvalidOperationException) 
                 {
-                    // Logger.ImportLog($"There was a prob so we'll be adding a self forwarder: {e}");
+                    // Logger.Log($"There was a prob so we'll be adding a self forwarder: {e}");
                     var handler = forwardObject.AddComponent<InteractionSelfForwarder>(); 
                                     // 
                     Assert.IsFalse(handler == null, $"didn't find an IClickInteractionHandler on object named '{forwardTargetName}'");
@@ -218,7 +218,7 @@ namespace DuksGames.Tools
 
             if (!string.IsNullOrEmpty(forwardTargetName))
             {
-                Logger.ImportLog($"Add a scene ob referencer".Pink());
+                Logger.Log($"Add a scene ob referencer".Pink());
                 // TODO: if existing referencer...
                 // Don't make the user add a separate SceneObjectReferencerLike in blender
                 //   its too complicated.

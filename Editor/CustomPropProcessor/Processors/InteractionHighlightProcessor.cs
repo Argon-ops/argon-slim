@@ -81,8 +81,8 @@ namespace DuksGames.Tools
                                         t => t.GetComponent<Renderer>() != null,
                                         modelPostProcessInfo.ImportHierarchyLookup);
 
-            //Logger.ImportLog($"LOOK UP contents: {modelPostProcessInfo.ImportHierarchyLookup.DDump()}".Pink());
-            //Logger.ImportLog($"InterHighlighter : tar renderer: {tarRenderer?.name}".Blue());
+            //Logger.Log($"LOOK UP contents: {modelPostProcessInfo.ImportHierarchyLookup.DDump()}".Pink());
+            //Logger.Log($"InterHighlighter : tar renderer: {tarRenderer?.name}".Blue());
                                         
             abstractHighlighter.TargetRenderer = tarRenderer == null ? abstractHighlighter.gameObject : tarRenderer.gameObject;
 

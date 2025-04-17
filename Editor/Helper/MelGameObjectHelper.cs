@@ -276,7 +276,7 @@ namespace DuksGames.Tools
                 var ifound = child.root.FindRecursiveSelfInclusive(t => t.gameObject.GetInstanceID() == instanceId);
                 if(ifound) 
                 {
-                    Logger.ImportLog($"Found {ifound.name} whose inst id is: {ifound.gameObject.GetInstanceID()}");
+                    Logger.Log($"Found {ifound.name} whose inst id is: {ifound.gameObject.GetInstanceID()}");
                     return ifound;
                 }
             }
@@ -284,7 +284,7 @@ namespace DuksGames.Tools
             var found = MelGameObjectHelper.FindInRoot(child, objectName);
             if (found)
             {
-                Logger.ImportLog($"Found by name instead: '{found.name}'");
+                Logger.Log($"Found by name instead: '{found.name}'");
                 return found;
             }
             

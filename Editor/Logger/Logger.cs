@@ -6,16 +6,25 @@ namespace DuksGames.Tools
 {
     public static class Logger
     {
-        public static void ImportLog(string s)
+        static bool _isImportLoggerEnabled => true;  
+        
+        // 
+        public static void Log(string s)
         {
-            // if (ArgonCachedPreferences.Preferences.IsImportLoggerEnabled)
+            if(_isImportLoggerEnabled)
                 Debug.Log(s);
         }
 
-        public static void ImportLogWarning(string s)
+        public static void LogWarning(string s)
         {
-            // if (ArgonCachedPreferences.Preferences.IsImportLoggerEnabled)
+            if(_isImportLoggerEnabled)
                 Debug.LogWarning(s);
+        }
+
+        public static void LogError(string s)
+        {
+            if(_isImportLoggerEnabled)
+                Debug.LogError(s);
         }
     }
 }
