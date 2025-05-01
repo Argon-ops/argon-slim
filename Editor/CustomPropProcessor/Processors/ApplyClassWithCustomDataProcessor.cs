@@ -132,7 +132,7 @@ namespace DuksGames.Tools
                 //     
                 //      trouble is simply the brittle way we facilitate ui-editable dynamic data
                 //         on the blender side: in short, the 'payload key' is a global that's baked into everything.
-                //           
+                //     
                 return null;
             }
 
@@ -142,7 +142,7 @@ namespace DuksGames.Tools
 
         // TODO: add ImportConfig data on the ble side
         //  and then update the methods so that they have a parameter to accept that data.
-        ///    for not parameters are not used. 
+        ///    for now parameters are not used. 
         void MethodCall(Component component, Type type, string methodName, params object[] parameters)
         {
             var methodInfo = type.GetMethod(methodName);
@@ -175,6 +175,7 @@ namespace DuksGames.Tools
                 //  THE THING IS: maybe we can already do this, funnily enough, because wouldn't the sub-fields be addressable
                 //    with dot syntax. E.g. if the field is SomeSerOb foo, then key should be "foo.bar" (where bar is property in SomeSerOb)
 
+                // is the property an array and is type not a string. 
                 // strings qualify as arrays but we don't want to handle them as arrays
                 if (property.isArray && property.propertyType != SerializedPropertyType.String) 
                 {
@@ -193,7 +194,7 @@ namespace DuksGames.Tools
                             {
                                 TargetObjectInSceneOrHierarchyName = (string)vals[i],
                                 FieldOwner = component,
-                                FieldName = key, // $"{key}.Array.data[{i}]" // Dprop.name
+                                FieldName = key, 
                                 ArrayIndex = i
                             });
                             continue;
@@ -219,6 +220,7 @@ namespace DuksGames.Tools
                     continue;
                 }
 
+                // property wasn't an array or object reference, so it must be a primitive type.
                 this.AssignFromType(property, val);
 
             }
@@ -237,7 +239,6 @@ namespace DuksGames.Tools
         Queue<AssignObjectReferenceWorkTicket> workTickets = new();
 
         void AssignObjectReference(AssignObjectReferenceWorkTicket workTicket)
-        // void AssignObjectReference(string fieldName, Component component, string targetObjectInScene)
         {
             var targetObjectInScene = workTicket.TargetObjectInSceneOrHierarchyName == ArgonImportSymbols.ThisObject ? 
                                         this.ApplyInfo.Target.name : workTicket.TargetObjectInSceneOrHierarchyName; // targetObjectInScene;

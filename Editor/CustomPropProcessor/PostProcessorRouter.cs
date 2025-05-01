@@ -82,9 +82,6 @@ namespace DuksGames.Tools
             string[] propNames,
             System.Object[] values)
         {
-
-            Logger.Log("##### IMPORT LOG TESET> DEL ME ******######");
-
             if(this.IsBlenderFile())
             {
                 // Decline to touch the file if it is .blend
