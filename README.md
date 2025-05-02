@@ -22,7 +22,7 @@ The import script sets up connections between components as needed.
 Put the files in this repo into the **Assets** folder of your Unity project. The easiest way to do this is to clone this repository into your Assets folder. Alternately, a version of Argon will be available on the Asset Store soon but it will mostly lag behind this repo.
 
 ## Blender
-Two ways to install the Blender addon: from a zip file or from the [source files](https://github.com/Argon-ops/argon-ble) using the boot script.
+Two ways to install the Blender addon: from a zip file or from [source](https://github.com/Argon-ops/argon-ble).
 
 ## Option 1: Blender from the zip file
 * Open Blender and open a **Preferences** view
@@ -34,9 +34,10 @@ Two ways to install the Blender addon: from a zip file or from the [source files
 
 ## Option 2: Blender from the source files
 * IMPORTANT: if you have previously installed from zip (Option 1), remove/uninstall that version of the addon from Preferences
-* Clone the [addon repository](https://github.com/Argon-ops/argon-ble) anywhere that suits you .
+* Clone the [addon repository](https://github.com/Argon-ops/argon-ble).
 * In Blender open a **Scripting** view
-* Click the folder icon to load the **boot2.py** script located in the top level of the Blender repo.
+* Click the folder icon to load the **boot2.py** script located in the top level of the repo.
+* Run the script by clicking the '>' button near the top of the Scripting view.
 
 Install from the source files to get the latest version of the addon or any previous version to meet your requirements. The boot2.py script makes it easy to reload the source (just re-run the script) which is useful if you want to make changes to the addon code and see them in Blender right away; (otherwise this requires uninstalling the addon in preferences, rezipping the source, etc.). 
 
