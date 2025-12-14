@@ -6,7 +6,7 @@ using UnityEngine.Assertions;
 using System;
 using DuksGames.Argon.Shared;
 using UnityEditor;
-using Unity.Plastic.Newtonsoft.Json;
+using Newtonsoft.Json;
 using DuksGames.Argon.Core;
 using Microsoft.CSharp.RuntimeBinder;
 using Unity.Properties;

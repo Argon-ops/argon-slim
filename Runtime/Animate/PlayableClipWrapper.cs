@@ -129,7 +129,8 @@ namespace DuksGames.Argon.Animate
         CursorDataListener AudioLimitListener;
         PlayableOutput AudioOutput;
 
-        [SerializeField] bool IsAudioAlwaysForwards => this.Ingredients.AudioAlwaysForwards;
+        // [SerializeField] 
+        bool IsAudioAlwaysForwards => this.Ingredients.AudioAlwaysForwards;
 
         #region play-speed
 

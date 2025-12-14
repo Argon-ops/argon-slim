@@ -1,0 +1,16 @@
+{
+  "name": "com.argon-ops.argon-slim",
+  "version": "1.0.0",
+  "displayName": "The Argon Importer",
+  "description": "This is a simple package containing utilities.",
+  "unity": "2021.3",
+  "keywords": [
+    "utility",
+    "tools",
+    "custom"
+  ],
+  "dependencies": 
+  {
+  	"com.unity.nuget.newtonsoft-json": "3.2.1" 
+  }
+}

@@ -36,7 +36,7 @@ namespace DuksGames.Tools
             meshCollider.convex = this.GetBoolWithSuffix("_convex");
             meshCollider.isTrigger = this.GetBoolWithSuffix("_is_trigger");
             meshCollider.cookingOptions = (MeshColliderCookingOptions)this.GetValueWithSuffix<int>("_cooking_options");
-            meshCollider.sharedMaterial = MelGameObjectHelper.FindInProject<PhysicMaterial>(this.GetValueWithSuffix<string>("_material"));
+            meshCollider.sharedMaterial = MelGameObjectHelper.FindInProject<PhysicsMaterial>(this.GetValueWithSuffix<string>("_material"));
         }
     }
 }

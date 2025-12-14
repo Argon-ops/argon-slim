@@ -27,7 +27,7 @@ namespace DuksGames.Tools
             boxCollider.size = Vector3.Scale(meshFilter.sharedMesh.bounds.size, scaleDimensions);
             boxCollider.center = meshFilter.sharedMesh.bounds.center;
             boxCollider.isTrigger = this.GetBoolWithSuffix("_is_trigger");
-            boxCollider.sharedMaterial = MelGameObjectHelper.FindInProjectOrWarn<PhysicMaterial>(
+            boxCollider.sharedMaterial = MelGameObjectHelper.FindInProjectOrWarn<PhysicsMaterial>(
                                         this.GetValueWithSuffix<string>("_material"));
         }
     }

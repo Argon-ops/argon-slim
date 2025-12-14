@@ -48,8 +48,8 @@ namespace DuksGames.Tools
             var rb = MelGameObjectHelper.AddIfNotPresent<Rigidbody>(ApplyInfo.Target);
 
             rb.mass = this.Config.getFloat(this.AppendSuffix("_mass"));
-            rb.drag = this.Config.getFloat(this.AppendSuffix("_drag"));
-            rb.angularDrag = this.Config.getFloat(this.AppendSuffix("_angular_drag"));
+            rb.linearDamping = this.Config.getFloat(this.AppendSuffix("_drag"));
+            rb.angularDamping = this.Config.getFloat(this.AppendSuffix("_angular_drag"));
             rb.useGravity = this.GetBoolWithSuffix("_use_gravity");
             rb.isKinematic = this.GetBoolWithSuffix("_is_kinematic");
             rb.interpolation = (RigidbodyInterpolation)this.GetIntWithSuffix("_interpolate");
